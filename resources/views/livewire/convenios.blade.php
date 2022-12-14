@@ -3,7 +3,7 @@
     <div class="container col-md-9" style="padding-left: 200px; position: center">
             <div class="row mb-6">
                 <div class="col-md-12 text-center">
-                    <h3><strong>Conênios</strong></h3>
+                    <h3><strong>Convênios</strong></h3>
                 </div>
             </div>
             <div class="row">

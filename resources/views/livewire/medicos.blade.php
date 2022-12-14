@@ -1,9 +1,9 @@
 <div>
 
-    <div class="container col-md-9" style="padding-left: 200px; position: center">
+    <div class="container col-md-10" style="padding-left: 200px; position: center">
             <div class="row mb-6">
                 <div class="col-md-12 text-center">
-                    <h3><strong>Conênios</strong></h3>
+                    <h3><strong>Médicos</strong></h3>
                 </div>
             </div>
             <div class="row">
@@ -64,62 +64,94 @@
                     <div class="modal-body">
     
                         <form wire:submit.prevent="store">
-    
-                            <div class="form-group row">
-                                <label for="nome" class="col-3">Nome</label>
-                                <div class="col-9">
+                            <div class="form-group">
+                            <div class="form-row">
+
+                                <div class="form-group col-md-6">
+                                <label for="nome">Nome</label>
                                     <input type="text" id="nome" class="form-control" wire:model="nome">
                                     @error('nome')
                                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="cpf" class="col-3">CPF</label>
-                                <div class="col-9">
+            
+                                <div class="form-group col-md-6">
+                                <label for="cpf">CPF</label>
                                     <input type="text" id="cpf" class="form-control" wire:model="cpf">
                                     @error('cpf')
                                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="data_nascimento" class="col-3">Data de Nascimento</label>
-                                <div class="col-9">
-                                    <input type="text" id="data_nascimento" class="form-control" wire:model="data_nascimento">
+        
+                                <div class="form-group col-md-6">
+                                <label for="data_nascimento">Data de Nascimento</label>
+                                    <input type="date" id="data_nascimento" class="form-control" wire:model="data_nascimento">
                                     @error('data_nascimento')
                                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="genero" class="col-3">Gênero</label>
-                                <div class="col-9">
-                                    <input type="text" id="genero" class="form-control" wire:model="genero">
+ 
+                                <div class="form-group col-md-6">
+                                <label for="genero">Gênero</label>
+                                <div class="input-group">
+                                    <select id="genero" name="genero" class="form-control">
+                                        <option value="">Selecione</option>
+                                        <option value="feminino">Feminino</option>
+                                        <option value="masculino">Masculino</option>
+                                    </select>
+                                </div>
                                     @error('genero')
                                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="especialidade_id" class="col-3">Especialidade</label>
-                                <div class="col-9">
-                                    <input type="text" id="especialidade_id" class="form-control" wire:model="especialidade_id">
+                          
+                                <div class="form-group col-md-6">
+                                <label for="especialidade_id">Especialidade</label>
+                                <div class="input-group">
+                                    <select id="especialidade_id" name="especialidade_id" class="form-control">
+                                        <option value="">Selecione</option>
+                                        @foreach($especialidades as $e)
+                                            <option value="{{ $e->id }}">{{ $e->nome_especialidade }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                     @error('especialidade_id')
                                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="convenio_id" class="col-3">Convênios</label>
-                                <div class="col-9">
-                                    <input type="text" id="convenio_id" class="form-control" wire:model="convenio_id">
+
+                                <div class="form-group col-md-6">
+                                <label for="convenio_id">Convênios</label>
+                                <div class="input-group">
+                                    <select id="convenio_id" name="convenio_id" class="form-control">
+                                        <option value="">Selecione</option>
+                                        @foreach($convenios as $c)
+                                            <option value="{{ $c->id }}">{{ $c->nome_convenio }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                     @error('convenio_id')
                                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div>
 
+                                <div class="form-group col-md-6">
+                                <label for="email">Email</label>
+                                    <input type="text" id="email" class="form-control" wire:model="email">
+                                    @error('email')
+                                        <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                     
+                                <div class="form-group col-md-6">
+                                <label for="telefone">Telefone</label>
+                                    <input type="text" id="telefone" class="form-control" wire:model="telefone">
+                                    @error('telefone')
+                                        <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            </div>
     
                             <div class="form-group row" >
                                 <div class="col-9">
